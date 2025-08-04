@@ -1,0 +1,633 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #e0f7e9, #ffffff);
+    margin: 0px 0px 0px 0px;
+    padding: 0;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap:wrap;    
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background: linear-gradient(to right, #2ecc71, #27ae60);
+    width: 1200px ;
+    color: white;
+    padding: 20px 0px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    transition: transform 0.225s ease-in-out;
+}
+
+
+.container header:hover {
+    transform: scale(1.003);
+    transition: transform 0.225s ease-in-out;
+}
+
+
+.header-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    font-size: 23px;
+    transition: transform 0.225s ease-in-out;
+}
+
+.header-box:hover {
+    transform: scale(1.01);
+    transition: transform 0.225s ease-in-out;
+}
+
+
+.header-icon {
+    width: 100px;
+    height: 100px;
+}   
+
+
+.weather-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    transition: transform 0.225s ease-in-out;
+}
+
+
+.weather-heading img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.weather-heading h3 {
+    font-size: 45px;
+    color: #27ae60;
+}   
+
+
+.weather-heading:hover{
+    transform: scale(1.013);
+    transition: transform 0.225s ease-in-out;
+}
+
+.chat-panels {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 30px;
+    margin-top: 80px;
+}
+
+.weather-chat-panels {
+    display: flex;
+    /* gap:20px; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* .chat-panel:hover {
+    box-shadow: inset 0 0 6px #9af8b4;
+    transform: scale(1.01);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}    */
+
+.chat-panel h3 {
+    margin: -30px 0px 0px 0px;
+    color: #27ae60;
+    text-align: center;
+    font-size: 33px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.chat-panel h3:hover {
+    transform: scale(1.008);
+    transition: transform 0.2s ease-in-out;
+} 
+
+.chat-placeholder {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 30px;
+    height: 600px;
+    width: 950px;
+    margin-left: 0px;
+    margin-bottom:0px;
+    margin-top: -20px;
+    overflow-y: auto;
+    font-size: 17px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 6px #b6e2c2;
+    transition: background-color 0.15s ease-in-out, transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.chat-placeholder:hover {
+    background-color: #ffffff;
+    transform: scale(1.004);
+    transition: background-color 0.15s ease-in-out, transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.chat-placeholder.active-chat {
+    font-style: normal;
+    justify-content: center flex-start;
+    flex-direction: column;
+    align-items: center flex-start;
+    padding-left: 20px;
+}
+
+.placeholder-text {
+    color: #888;
+    text-align: center;
+    font-size: 17px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.upload-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: inherit;
+    gap: 10px;
+    text-align: center;
+    margin: 40px 0px;
+    margin-bottom: 100px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.weather-custom-btn {
+    background-color: #27ae60;
+    color: white;
+    padding: 16px 16px;
+    font-size: 17.5px;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: 
+        background-color 0.15s ease-in-out,
+        transform 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+}
+
+.weather-custom-btn:hover {
+    background-color: #26b461;
+    box-shadow: 0 0 4px #72f9aa;
+    transform: scale(1.03);
+    transition: 
+        background-color 0.15s ease-in-out,
+        transform 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+}
+
+
+.predict-custom-btn {
+    background-color: #27b160;
+    color: white;
+    padding: 15px 30px;
+    font-size: 17.5px;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: scale(1.03),background-color #2be177 0.15s ease-in-out, transform 0.15s ease-in-out, shadow 0px 0px 5px #2cfc83 0.15s ease-in-out;
+}
+
+.predict-custom-btn:hover {
+    background-color: #26b461;
+    opacity: 1;
+    color: white;
+    padding: 15px 30px;
+    font-size: 17.5px;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: 
+        background-color 0.15s ease-in-out, 
+        transform 0.18s ease-in-out, 
+        box-shadow 0.15s ease-in-out;
+    transform: scale(1.03);
+    box-shadow: 0 0 4px #72f9aa;
+}
+
+
+.custom-file-upload {
+    border: 2px dashed #27ae60;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 22px;
+    background-color: #ffffff;
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.15s ease-in-out, transform 0.15s ease-in-out;
+    margin-bottom: 0px;
+}
+
+.custom-file-upload:hover {
+    background-color: #eafff2;
+    transform: scale(1.03);
+}
+
+.location-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 25px;
+    margin-bottom: 90px;
+}
+
+
+#location-input {
+    padding: 16px 0px;
+    padding-left: 18px;
+    padding-right: 12px;
+    font-size: 17.2px;
+    border: 2.2px solid #27ae60;
+    border-radius: 40px;
+    width: 400px;
+    outline: none;
+    transition: 
+        transform 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
+}
+
+/* Placeholder text styling */
+#location-input::placeholder {
+    color: #59635d;
+    opacity: 0.7;
+}
+
+/* Scale and glow on hover */
+#location-input:hover {
+    transform: scale(1.002);
+    box-shadow: 0 0 10px #d9fee8;
+}
+
+/* Scale and glow on focus */
+#location-input:focus {
+    transform: scale(1.002);
+    box-shadow: 0 0 12px #d9fee8;
+}
+
+
+.prediction-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+    /* transition: transform 0.225s ease-in-out; */
+}
+
+
+/* .prediction-panel:hover {
+    transform: scale(1.0112);
+    transition: transform 0.225s ease-in-out;
+}    */
+
+.prediction-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+    margin-bottom: 20px;
+    transition: transform 0.225s ease-in-out;
+}
+
+.prediction-heading h3 {
+    color: #2abe67;
+    font-size: 45px;
+    transition: transform 0.225s ease-in-out;
+}
+
+
+.prediction-heading h3:hover {
+    transform: scale(1.005);
+    transition: transform 0.225s ease-in-out;
+
+}
+
+
+.prediction-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.225s ease-in-out;
+}
+
+.prediction-icon:hover {
+    transform: scale(1.03);
+    transition: transform 0.225s ease-in-out;
+}  
+
+.disease-chat-placeholder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    background-color: #fdfdfd;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: 30px;
+    height: 650px;
+    width: 1000px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    color: #333;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: inset 0 0 5px #83e89e;
+}
+
+/* .disease-chat-placeholder-text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center!important;
+    font-size: 30px;
+    color: #858585;
+    transition: transform 0.3s ease-in-out;
+} */
+
+
+.disease-chat-placeholder:hover {
+    background-color: #ffffff;
+    transform: scale(1.003);
+    box-shadow: inset 0 0 6px #83e89e;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}   
+
+.developer-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center ; 
+    gap: 5px;
+    text-align: center;
+    margin-top: 250px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: #31465a;
+}
+
+.developer-details p {
+    margin: 0px 0px -5px 0px;
+} 
+ 
+
+.weather-forecast-chat-placeholder {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content:flex-start;
+    align-content:flex-start;
+    align-items: flex-start;
+    background-color: #fdfdfd;
+    padding: 30px;
+    padding-top: 20px;
+    border-radius: 30px;
+    height: 650px;
+    width: 1000px;
+    overflow-y: auto;
+    color: #333;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: inset 0 0 5px #83e89e;
+    text-align:left;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #323232;
+}
+
+
+.weather-forecast-chat-placeholder::content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    align-content:flex-start;
+    background-color: #fdfdfd;
+    align-items:flex-start;
+    padding: 30px;
+    padding-top: 20px;
+    border-radius: 30px;
+    height: 650px;
+    width: 1000px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    color: #333;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: inset 0 0 5px #83e89e;
+    text-align: left;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #323232;
+}
+
+.weather-forecast-chat-placeholder:hover {
+    background-color: #ffffff;
+    transform: scale(1.003);
+    box-shadow: inset 0 0 6px #83e89e;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.precaution-result-chat-placeholder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    background-color: #fdfdfd;
+    align-items: flex-start;
+    padding: 40px;
+    padding-top: 20px;
+    border-radius: 30px;
+    height: 650px;
+    width: 1000px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    color: #333;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: inset 0 0 5px #83e89e;
+    text-align: left;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #2e2e2e;
+}
+
+
+.precaution-result-chat-placeholder::content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:left;
+    align-content:flex-start;
+    background-color: #fdfdfd;
+    align-items:flex-start;
+    padding: 40px;
+    padding-top: 20px;
+    border-radius: 30px;
+    height: 650px;
+    width: 1000px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    color: #333;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: inset 0 0 5px #83e89e;
+    text-align: left;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #2e2e2e;
+}
+
+.precaution-result-chat-placeholder:hover {
+    background-color: #ffffff;
+    transform: scale(1.003);
+    box-shadow: inset 0 0 6px #83e89e;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.weather-chat-panels h3 {
+    color: #27ae60;
+    font-size: 40px;
+    margin: 0px 0px 20px 0px;
+    transition: transform 0.225s ease-in-out;
+}
+
+.weather-chat-panels h3:hover {
+    transform: scale(1.005);
+    transition: transform 0.225s ease-in-out;
+}
+
+
+.real-time-weather-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.weather-precaution-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    margin-top: 100px;
+}
+
+.weather-precaution-panel h3 {
+    color: #27ae60;
+    font-size: 40px;
+    margin: 0px 0px 20px 0px;
+    transition: transform 0.225s ease-in-out;
+}
+
+.weather-precaution-panel h3:hover {
+    transform: scale(1.005);
+    transition: transform 0.225s ease-in-out;
+}
+
+
+.disease-prediction-response {
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: justify;
+    padding: 20px;
+    font-size: 20px;
+}
+
+
+
+
+/* #weather-forecast {
+    /* text-align: left;         /* Aligns all text to the left */
+    /* padding: 30px;              Adds inner spacing */
+    /* line-height: 1.6;           Improves spacing between lines */
+    /* white-space: pre-wrap;      Keeps line breaks (important!) */
+    /* font-size: 17px; */
+    /* color: #222; */
+/* } */
+
+/* #precaution-result {
+    text-align: left;           /* Aligns all text to the left */
+    /* padding: 30px;              Adds inner spacing */
+    /* line-height: 1.6;           Improves spacing between lines */
+    /* white-space: pre-wrap;      Keeps line breaks (important!) */
+    /* font-size: 18px; */
+    /* color: #222; */
+/* } */
+
+.weather-forecast-placeholder-text {
+    color: #858585;
+    margin-top: 285px;
+    margin-left: 310px;
+    font-size: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.weather-precautions-placeholder-text {
+    color: #858585;
+    margin-top: 285px;
+    margin-left: 320px;
+    font-size: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+.disease-prediction-placeholder-text {
+    color: #858585;
+    margin-top: 260px;
+    margin-left: 70px;
+    font-size: 30px;
+    transition: transform 0.3s ease-in-out;
+}

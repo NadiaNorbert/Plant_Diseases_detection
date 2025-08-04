@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plant Disease Prediction</title>
+
+    <!-- For FastAPI -->
+    <link rel="stylesheet" href="{{ url_for('static', path='static/plants_precaution.css') }}">
+    <!-- For GoLive (uncomment if testing without FastAPI) -->
+    <!-- <link rel="stylesheet" href="plants_precaution.css"> -->
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-box">
+                <img src="https://cdn-icons-png.flaticon.com/512/2909/2909593.png" alt="Plant Icon" class="header-icon">
+                <h1>PlantDoc - Smart Plant Disease Detection</h1>
+            </div>
+        </header>
+
+        <!-- Prediction Panel -->
+        <div class="prediction-panel">
+
+            <!-- Disease Section -->
+            <div class="prediction-heading">
+                <img src="/static/static/plant_disease_detection_icon.png" alt="Plant Icon" class="prediction-icon">
+                <h3>PlantDOC Plant Disease Detection</h3>
+            </div>
+
+            <div id="disease-result" class="disease-chat-placeholder">
+                <div class="disease-prediction-placeholder-text">
+                   <p>Upload an image and click Predict to get Plant Disease Prediction</p> 
+                </div>
+            </div>
+
+            <div class="upload-section">
+                <label for="file-upload" class="custom-file-upload">Upload Plant Image</label>
+                <input type="file" id="file-upload" name="plant-image" accept="image/*">
+                <br><br>
+                <button class="predict-custom-btn" onclick="predictDisease()">Predict Plant Disease</button>
+            </div>
+
+            <!-- Weather Section -->
+            <div class="weather-heading">
+                <img src="/static/static/agri_weather_icon.png" alt="Weather Icon" class="weather-icon" />
+                <h3>Real-Time Weather Prediction and Precautions</h3>
+            </div>
+
+            <div class="location-section">
+                <input type="text" id="location-input" placeholder="Enter crop field location">
+                <button class="weather-custom-btn" onclick="getWeatherUpdate()">Get Weather Update</button>
+            </div>
+
+            <div class="weather-chat-panels">
+                <div class="real-time-weather-panel">
+                    <h3>⛅ Real-time Weather</h3>
+                    <div id="weather-forecast" class="weather-forecast-chat-placeholder">
+                        <div class="weather-forecast-placeholder-text">Weather forecast Predictions</div>
+                    </div>
+                </div>
+
+                <div class="weather-precaution-panel">
+                    <h3>🤖 AI Precautions Advice</h3>
+                    <div id="precaution-result" class="precaution-result-chat-placeholder">
+                        <div class="weather-precautions-placeholder-text">PlantDOC AI Precaution tips</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="developer-details">
+                <p id="rights">&copy; PlantDoc All rights reserved 2025</p>
+                <p id="developer">Developed by: Mr. J. Daniel Jayakaran and Ms. Nadia Norbert</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        async function getWeatherUpdate() {
+            const location = document.getElementById("location-input").value;
+            if (!location) {
+                alert("Please enter a location.");
+                return;
+            }
+
+            try {
+                const response = await fetch(`/weather-precaution?location=${encodeURIComponent(location)}`);
+                const data = await response.json();  // ✅ This was missing in your original code!
+
+                console.log("🔍 FULL data object:", data);
+                console.log("🧪 Forecast:", data.forecast);
+                console.log("🧪 Precaution Advice:", data.precaution_advice);
+
+                document.getElementById("weather-forecast").innerText = data.forecast || "Weather forecast unavailable.";
+                document.getElementById("precaution-result").innerText = data.precaution_advice || "Precaution advice unavailable.";
+            } catch (error) {
+                console.error("❌ Error fetching weather data:", error);
+                alert("Error fetching weather update.");
+            }
+        }
+
+        async function predictDisease() {
+            const fileInput = document.getElementById("file-upload");
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("Please upload a plant image first.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            try {
+                const response = await fetch("/predict", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                document.getElementById("disease-result").innerHTML = `
+                    <div class="disease-prediction-response">
+                        <h3>🌿 Plant Disease Prediction Result</h3>           
+                        <p><strong>Predicted Disease:</strong> ${data.disease}</p>
+                        <p><strong>Confidence:</strong> ${data.confidence}</p>
+                        <p><strong>Remedy:</strong> ${data.remedy}</p>
+                    </div>
+                `;
+            } catch (error) {
+                console.error("❌ Error predicting disease:", error);
+                alert("Prediction failed.");
+            }
+        }
+    </script>
+</body>
+</html>
